@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Sound Of DeepLearning"
+title                    : "Sound Of DeepLearning.log"
 title_separator          : "-"
 subtitle                 : # 사운드에 관한 모든것, 음성인식, 사운드 디자인, 인공지능 작곡 ,sound recognize, sound design, music inforamtion retrival, ai compose
 name                     : "hshlalla"
@@ -102,15 +102,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "**SuHun Hong**"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "I am **composer, AI Developer.**"
+  location         : "South Korea"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+       url: "mailto:hshlalla@naver.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
