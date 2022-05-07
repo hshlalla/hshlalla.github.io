@@ -18,7 +18,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 locale                   : "en-US"
 title                    : "Sound Of DeepLearning.log"
 title_separator          : "-"
-subtitle                 : 사운드에 관한 모든것, 음성인식, 사운드 디자인, 인공지능 작곡 ,sound recognize, sound design, music inforamtion retrival, ai composer
+subtitle                 : "사운드에 관한 모든것, 음성인식, 사운드 디자인, 인공지능 작곡 ,sound recognize, sound design, music inforamtion retrival, ai composer"
 name                     : "hshlalla"
 description              : "An amazing website."
 url                      : "https://hshlalla.github.io"
