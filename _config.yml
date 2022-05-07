@@ -20,10 +20,10 @@ title                    : "Sound Of DeepLearning"
 title_separator          : "-"
 subtitle                 : 사운드에 관한 A - Z
 name                     : "hshlalla"
-description              : "An amazing website."
+description              : "음악, 사운드에 관한 인공지능 기법의 모든것을 다룹니다."#, 음성인식, 사운드 디자인, 인공지능 작곡 ,sound recognize, sound design, music inforamtion retrival, ai compose"
 url                      : "https://hshlalla.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog" 모든것, 음성인식, 사운드 디자인, 인공지능 작곡 ,sound recognize, sound design, music inforamtion retrival, ai compose
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+baseurl                  : # the subpath of your site, e.g. "/blog" 
+repository               : "hshlalla/hshlalla.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # "소개"
