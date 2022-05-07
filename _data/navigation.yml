@@ -3,7 +3,7 @@ main:
   - title: "소개"
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "프로젝트"
-    url: /_post/
+    url: /_posts/
 #   - title: "Sample Posts"
 #     url: /year-archive/
 #   - title: "Sample Collections"
