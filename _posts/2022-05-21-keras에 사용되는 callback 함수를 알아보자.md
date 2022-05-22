@@ -1,7 +1,7 @@
 ---
+title : "category customizing"
 categories : 
 - Tensorflow
-title : "category customizing"
 tags:
 - Keras
 - Data analysis
