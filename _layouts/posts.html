@@ -12,6 +12,21 @@ layout: archive
         <strong>{{ year.name }}</strong> <span class="taxonomy__count">{{ year.items | size }}</span>
       </a>
     </li>
+  
+  
+      <div>
+      <!--utterances comment-->
+        <script src="https://utteranc.es/client.js"
+         repo="hshlalla/hshlalla.github.io"
+         issue-term="pathname"
+         label="Comment"
+         theme="github-light"
+         crossorigin="anonymous"
+         async>
+      </script>
+      
+    </div>
+  <br><br>
   {% endfor %}
 </ul>
 
@@ -27,18 +42,7 @@ layout: archive
     </div>
     <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
     
-    <div>
-      <!--utterances comment-->
-        <script src="https://utteranc.es/client.js"
-         repo="hshlalla/hshlalla.github.io"
-         issue-term="pathname"
-         label="Comment"
-         theme="github-light"
-         crossorigin="anonymous"
-         async>
-      </script>
-      
-    </div>
+
   </section>
 
 
