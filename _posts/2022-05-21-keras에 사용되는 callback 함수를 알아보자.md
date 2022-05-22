@@ -7,7 +7,7 @@ tags:
 - Data analysis
 layout: archive
 classes: layout--home
-author_profile: false
+author_profile: true
 last_modified_at:
 ---
 
