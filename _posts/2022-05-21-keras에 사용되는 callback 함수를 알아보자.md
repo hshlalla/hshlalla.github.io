@@ -1,3 +1,18 @@
+---
+categories : 
+- Tensorflow
+title : "category customizing"
+tags:
+- Keras
+- Data analysis
+last_modified_at:
+layout: archive
+classes: layout--home
+author_profile: false
+---
+
+
+
 # Keras Callbacks
 
 keras로 학습을 시키다보면 다양한 옵션을 training 단계에서 줄 수 있다. 이제 수행하는 object를 callback라고 부른다. callback들을 통해서 tensorboard에 모든 batch of training들에 대해 metric 수치를 모니터링할 수도 있고, 이를 저장하는 것도 가능하다. Early Stop이나 Learning Rate Scheduling과 같은 기능을 통해 학습결과에 따라 학습을 멈추거나 학습률을 조정할수도 있다. 이처럼 Callback들을 잘 활용한다면, 딥러닝 학습의 결과를 보다 좋게 만들 수 있기 때문에, 많이 사용되는 callback 4가지를 소개하고, 사용법에 대해 포스팅하였다.
