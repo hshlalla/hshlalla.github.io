@@ -1,5 +1,5 @@
 ---
-title : "category customizing"
+title : "Keras callback 함수를 알아보자"
 categories : 
 - Tensorflow
 tags:
