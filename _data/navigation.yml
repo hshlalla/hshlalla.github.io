@@ -2,6 +2,8 @@
 main:
   - title: "소개"
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Categories"
+    url: /categories/
   - title: "프로젝트"
     url: /_posts/
 #   - title: "Sample Posts"
