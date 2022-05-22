@@ -5,11 +5,12 @@ categories :
 tags:
 - Keras
 - Data analysis
-last_modified_at:
-layout: archive
+- layout: archive
 classes: layout--home
 author_profile: false
+last_modified_at:
 ---
+
 
 
 
