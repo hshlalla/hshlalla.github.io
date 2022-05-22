@@ -1,6 +1,6 @@
 ---
 categories : 
-    - Blog_config
+- Blog_config
 title : "category customizing"
 tags:
 - github.io
