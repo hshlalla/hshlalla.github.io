@@ -1,5 +1,4 @@
 ---
-layout :  single
 categories : 
     - Blog_config
 title : "category customizing"
