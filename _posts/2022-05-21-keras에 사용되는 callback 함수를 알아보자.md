@@ -5,7 +5,7 @@ categories :
 tags:
 - Keras
 - Data analysis
-- layout: archive
+layout: archive
 classes: layout--home
 author_profile: false
 last_modified_at:
