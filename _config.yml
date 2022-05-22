@@ -4,7 +4,18 @@
 # which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
-
+    <div>
+      <!--utterances comment-->
+        <script src="https://utteranc.es/client.js"
+         repo="hshlalla/hshlalla.github.io"
+         issue-term="pathname"
+         label="Comment"
+         theme="github-light"
+         crossorigin="anonymous"
+         async>
+      </script>
+      
+    </div>
 # Theme Settings
 #
 # Review documentation to determine if you should use `theme` or `remote_theme`
@@ -30,7 +41,7 @@ masthead_title           : # "소개"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
+  provider               : "utterances" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
