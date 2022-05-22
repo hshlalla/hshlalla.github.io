@@ -1,17 +1,12 @@
 ---
-title : "Keras callback 함수를 알아보자"
 categories : 
 - Tensorflow
+title : "Keras callback 함수를 알아보자"
 tags:
 - Keras
 - Data analysis
-layout: archive
-classes: layout--home
-author_profile: true
 last_modified_at:
 ---
-
-
 
 
 # Keras Callbacks
