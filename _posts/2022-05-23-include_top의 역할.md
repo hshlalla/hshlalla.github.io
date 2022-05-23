@@ -1,7 +1,7 @@
 ---
 categories : 
 - Tensorflow
-title : "리눅스 서버에 venv 설치해보자"
+title : "include_top"
 tags:
 - keras
 - include_top
