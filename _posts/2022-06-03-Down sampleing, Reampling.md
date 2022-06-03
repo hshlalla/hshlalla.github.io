@@ -84,7 +84,7 @@ plt.tight_layout()
 
 
     
-![png](output_6_0.png)
+![png](images/output_6_0.png)
     
 
 
@@ -136,7 +136,3 @@ sf.write('./' + '16k.wav' , y, 48000, format='WAV', endian='LITTLE', subtype='PC
 sf.write('./' + '8k.wav', resample, 16000, format='WAV', endian='LITTLE', subtype='PCM_16')
 ```
 
-
-```python
-
-```
