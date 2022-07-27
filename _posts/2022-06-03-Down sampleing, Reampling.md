@@ -84,7 +84,7 @@ plt.tight_layout()
 
 
     
-![png](/images/output_6_0.png)
+![png](/images/2022-06-03-Down sampleing, Reampling/output_6_0.png)
     
 
 
