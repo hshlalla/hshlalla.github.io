@@ -127,7 +127,7 @@ author:
       # url: "https://instagram.com/"
     - label: "Linked in"
       icon: "fab fa-fw fa-linkedin"
-      # url: "https://www.linkedin.com/in/%EB%8B%A4%EB%B9%84-%ED%95%98%EC%9D%B4-aa9491240/"
+      url: "https://www.linkedin.com/in/%EB%8B%A4%EB%B9%84-%ED%95%98%EC%9D%B4-aa9491240/"
 
 # Site Footer
 footer:
