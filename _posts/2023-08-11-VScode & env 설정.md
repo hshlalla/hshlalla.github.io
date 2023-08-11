@@ -60,7 +60,7 @@ pyenv install 3.7.3
 pyenv versions
 ```
 
-# 추가로 virtualenv는 설치해서 관리하면 편하지만 난 vscode에서 venv를 사용하려고 따로 설치하지는 않았다.
+### 추가로 virtualenv는 설치해서 관리하면 편하지만 난 vscode에서 venv를 사용하려고 따로 설치하지는 않았다.
 > virtualenv가 필요한경우 설치하자.
 ```shell
 git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
