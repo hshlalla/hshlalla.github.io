@@ -16,6 +16,7 @@ vscode가 venv는 지원하기 때문에 인터프리터 관리용도로 사용�
 
 # pyenv
 > 사전에 필요한 패키지 설치
+
 ``` shell
 sudo apt install -y make build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
@@ -44,7 +45,8 @@ source ~/.bashrc
 ```
 
 ### 설치가능한 버전확인
-> python 여러버전이 보인다면 성공 추후 python 버전업이 되면 pyenv에 누락되는경우가 있으니 업데이트를 진행한다. 
+> python 여러버전이 보인다면 성공 추후 python 버전업이 되면 pyenv에 누락되는경우가 있으니 업데이트를 진행한다.
+
 ``` shell
 pyenv update
 pyenv install --list
@@ -62,14 +64,17 @@ pyenv versions
 
 ### 추가로 virtualenv는 설치해서 관리하면 편하지만 난 vscode에서 venv를 사용하려고 따로 설치하지는 않았다.
 > virtualenv가 필요한경우 설치하자.
+
 ```shell
 git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 ```
 > pyenv virtualenv 설치
+
 ```shell
 pyenv virtualenv 3.x.y my_env
 ```
 > 실행,종료
+
 ```shell
 pyenv activate my_env
 pyenv deactivate
