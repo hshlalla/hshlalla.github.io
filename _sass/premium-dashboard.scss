@@ -112,3 +112,77 @@
 #agent-chat-trigger:hover {
   transform: scale(1.1) rotate(5deg);
 }
+
+/* Global Overrides for Jekyll Layouts (Single, Archive, etc.) */
+body, html {
+  background-color: var(--bg-color) !important;
+  background-image: radial-gradient(circle at top right, #1a1a2e, #0b0c10) !important;
+  background-attachment: fixed !important;
+  color: var(--text-main) !important;
+}
+
+/* Navigation Bar */
+.masthead {
+  background: rgba(11, 12, 16, 0.8) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+}
+
+.masthead__menu-item a {
+  color: var(--text-main) !important;
+}
+
+.masthead__menu-item a:hover {
+  color: var(--accent-secondary) !important;
+}
+
+.site-title {
+  color: var(--accent-secondary) !important;
+}
+
+/* Content Area for Blog Posts */
+.page__content {
+  color: var(--text-main) !important;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--accent-secondary) !important;
+  }
+  
+  a {
+    color: var(--accent-primary) !important;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+      color: var(--accent-secondary) !important;
+    }
+  }
+  
+  p, li {
+    color: #cccccc !important;
+  }
+  
+  code {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--accent-secondary) !important;
+  }
+}
+
+.author__name {
+  color: var(--accent-secondary) !important;
+}
+
+.author__bio {
+  color: var(--text-dim) !important;
+}
+
+.page__footer {
+  background-color: var(--bg-color) !important;
+  border-top: 1px solid var(--glass-border) !important;
+  color: var(--text-dim) !important;
+}
+
+.page__footer a {
+  color: var(--accent-secondary) !important;
+}
