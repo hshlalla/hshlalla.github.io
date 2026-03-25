@@ -19,11 +19,11 @@ This project aims to transform a traditional personal portfolio site (Jekyll/Min
 *   **Implementation:** Maintained via Jekyll `_posts/` and `_pages/`.
 
 ### 3.2 Live Workspace (`/workspace/`)
-*   **Requirement:** A dashboard for client review.
+*   **Requirement:** A dashboard for client review. Supports dynamic routing for multiple projects via URL parameter (`?project=name`).
 *   **Features:**
-    *   **Live Preview:** `<iframe src="/front/">` embedding the latest UI work.
-    *   **Status Tracking (Docs):** Fetch latest commits/files from the `/docs/` folder via GitHub REST API.
-    *   **Feedback Mechanism:** A text form that securely redirects user input into a pre-filled GitHub Issue URL (`/issues/new?title=...&body=...`), ensuring all feedback is captured in the developer's formal tracking system without requiring server-side secrets.
+    *   **Live Preview:** `<iframe src="/work/{project-name}/front/">` embedding the specific project's UI.
+    *   **Status Tracking (Docs):** Fetch PRDs from the `/work/{project-name}/docs/` folder via GitHub REST API and render Mermaid diagrams visually.
+    *   **Feedback Mechanism:** A text form that securely redirects user input into a pre-filled GitHub Issue URL (`/issues/new?title=...&body=...`), including the project label, ensuring all feedback is captured in the developer's formal tracking system.
 
 ### 3.3 MD to PRD Generator (`/prd-generator/`)
 *   **Requirement:** A tool to rapid-prototype PRDs directly in the browser.
