@@ -70,17 +70,21 @@ author_profile: true
       Agent Command Center
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+      <a href="/workspace/" style="text-decoration: none;">
+        <div style="cursor: pointer; padding: 1rem; border-radius: 15px; background: rgba(57,255,20,0.05); border: 1px solid rgba(57,255,20,0.2); transition: 0.3s; height: 100%;">
+          <div style="font-weight: 700; color: #39FF14;">Live Workspace</div>
+          <div style="font-size: 0.8rem; color: var(--text-dim);">실시간 프론트엔드 프리뷰 & 작업 현황</div>
+        </div>
+      </a>
+      <a href="/prd-generator/" style="text-decoration: none;">
+        <div style="cursor: pointer; padding: 1rem; border-radius: 15px; background: rgba(188,19,254,0.05); border: 1px solid rgba(188,19,254,0.2); transition: 0.3s; height: 100%;">
+          <div style="font-weight: 700; color: var(--accent-primary);">MD to PRD Generator</div>
+          <div style="font-size: 0.8rem; color: var(--text-dim);">마크다운 문서를 기획안(PRD)으로 변환</div>
+        </div>
+      </a>
       <div onclick="toggleChat()" style="cursor: pointer; padding: 1rem; border-radius: 15px; background: rgba(0,242,255,0.05); border: 1px solid rgba(0,242,255,0.1); transition: 0.3s;">
         <div style="font-weight: 700; color: var(--accent-secondary);">/ai_times_summary</div>
-        <div style="font-size: 0.8rem; color: var(--text-dim);">AI Times 뉴스 요약 및 자동 포스팅</div>
-      </div>
-      <div onclick="toggleChat()" style="cursor: pointer; padding: 1rem; border-radius: 15px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); transition: 0.3s;">
-        <div style="font-weight: 700; color: var(--text-main);">/document_upload</div>
-        <div style="font-size: 0.8rem; color: var(--text-dim);">연구 자료 및 문서 웹 반영</div>
-      </div>
-      <div onclick="toggleChat()" style="cursor: pointer; padding: 1rem; border-radius: 15px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); transition: 0.3s;">
-        <div style="font-weight: 700; color: var(--text-main);">/update_content</div>
-        <div style="font-size: 0.8rem; color: var(--text-dim);">새로운 AI/사운드 연구 포스트 추가</div>
+        <div style="font-size: 0.8rem; color: var(--text-dim);">AI Times 요약 포스팅 명령</div>
       </div>
     </div>
   </div>
