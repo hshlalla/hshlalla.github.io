@@ -15,7 +15,22 @@ This repository supports a multi-project Vibe Coding architecture located in the
 Never place project-specific logic in the root Jekyll directories (`_pages`, `_posts`) unless it modifies the global dashboard itself.
 ALL project work must remain strictly inside `work/{project-name}/`.
 
-- `front/`: Client-side HTML/JS/CSS (served by GitHub pages).
-- `back/`: Server-side API logic.
-- `ai/`: Prompts, RAG configurations, model bindings.
-- `docs/`: The living PRD and Mermaid diagrams.
+- `project.json`: Metadata config. Specifies if the project is `internal` (hosted here) or `external` (hosted on Vercel/Render).
+- `front/`: Client-side HTML/JS/CSS (served by GitHub pages). Skip if `external`.
+- `back/`: Server-side API logic. Skip if `external`.
+- `ai/`: Prompts, RAG configurations, model bindings. Skip if `external`.
+- `docs/`: The living PRD and Mermaid diagrams. This must ALWAYS be present locally, even for `external` projects. This repository is the Control Center.
+
+## External Projects (Scalability)
+If the project is massive (requiring Python backends, custom servers, etc.), you must create an entirely new GitHub repository for it.
+However, you MUST still create a `work/{project-name}/` folder in this repository.
+Inside it, place the `docs/prd.md` and a `project.json` like this:
+```json
+{
+  "name": "Massive AI App",
+  "description": "Hosted externally on Vercel",
+  "preview_url": "https://external-url.app",
+  "type": "external"
+}
+```
+This ensures the client can still track PRD progress and view the live app via `hshlalla.github.io/workspace/?project={project-name}`.

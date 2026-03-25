@@ -101,18 +101,40 @@ permalink: /workspace/
     const activeView = document.getElementById('active-project-view');
     activeView.style.display = 'grid'; // because of the grid layout
     document.getElementById('workspace-status').style.display = 'inline-block';
-    document.getElementById('workspace-title').textContent = `Workspace: ${projectName}`;
-
-    // Setup Iframe
-    const frontUrl = `/work/${projectName}/front/`;
-    document.getElementById('frontend-iframe').src = frontUrl;
-    document.getElementById('frontend-link').href = frontUrl;
-
-    // Fetch PRD
-    fetchPRD(projectName);
+    
+    // Initialize specific project workspace asynchronously
+    initWorkspace(projectName);
   } else {
     // Fetch available projects grid
     fetchProjectList();
+  }
+
+  async function initWorkspace(project) {
+    let config = { type: 'internal' };
+    
+    // Attempt to load project.json
+    try {
+      const res = await fetch(`https://raw.githubusercontent.com/${repoOwner}/${repoName}/master/work/${project}/project.json`);
+      if(res.ok) {
+        config = await res.json();
+      }
+    } catch(e) {
+      console.log('No project.json found, using defaults.');
+    }
+
+    document.getElementById('workspace-title').textContent = config.name ? `Workspace: ${config.name}` : `Workspace: ${project}`;
+
+    // Setup Iframe based on config
+    const frontUrl = config.preview_url ? config.preview_url : `/work/${project}/front/`;
+    document.getElementById('frontend-iframe').src = frontUrl;
+    document.getElementById('frontend-link').href = frontUrl;
+    
+    if (config.type === 'external' || config.preview_url) {
+      document.getElementById('frontend-title').textContent = '🌐 External App Preview';
+    }
+
+    // Fetch PRD
+    fetchPRD(project);
   }
 
   async function fetchProjectList() {
@@ -124,25 +146,46 @@ permalink: /workspace/
       if (!response.ok) throw new Error('Work folder not accessible.');
       
       const items = await response.json();
-      const projects = items.filter(item => item.type === 'dir');
+      const projectDirs = items.filter(item => item.type === 'dir');
       
-      if(projects.length === 0) {
+      if(projectDirs.length === 0) {
         throw new Error('No projects found in work/.');
       }
 
+      // Fetch configs for all projects concurrently to build rich cards
+      const projectDataPromises = projectDirs.map(async p => {
+        let name = p.name;
+        let desc = 'Active developer workspace.';
+        let isExternal = false;
+        
+        try {
+          const configRes = await fetch(`https://raw.githubusercontent.com/${repoOwner}/${repoName}/master/work/${p.name}/project.json`);
+          if(configRes.ok) {
+            const config = await configRes.json();
+            if(config.name) name = config.name;
+            if(config.description) desc = config.description;
+            if(config.preview_url || config.type === 'external') isExternal = true;
+          }
+        } catch(e) { /* fallback used */ }
+        
+        return { id: p.name, name, desc, isExternal, isTemplate: (p.name === 'template') };
+      });
+
+      const projects = await Promise.all(projectDataPromises);
+
       let html = '';
       projects.forEach(p => {
-        const isTemplate = p.name === 'template';
-        const borderColor = isTemplate ? 'rgba(0,242,255,0.3)' : 'var(--glass-border)';
-        const titleColor = isTemplate ? 'var(--accent-secondary)' : 'var(--text-main)';
-        const accentBg = isTemplate ? 'rgba(0,242,255,0.05)' : 'rgba(255,255,255,0.02)';
-        
+        const borderColor = p.isTemplate ? 'rgba(0,242,255,0.3)' : (p.isExternal ? 'rgba(188,19,254,0.3)' : 'var(--glass-border)');
+        const titleColor = p.isTemplate ? 'var(--accent-secondary)' : (p.isExternal ? 'var(--accent-primary)' : 'var(--text-main)');
+        const accentBg = p.isTemplate ? 'rgba(0,242,255,0.05)' : (p.isExternal ? 'rgba(188,19,254,0.05)' : 'rgba(255,255,255,0.02)');
+        const badge = p.isExternal ? `<span style="font-size:0.65rem; background:rgba(188,19,254,0.2); padding:2px 6px; border-radius:4px; margin-left:5px; vertical-align:middle;">External</span>` : '';
+
         html += `
-          <a href="?project=${p.name}" style="text-decoration: none;">
+          <a href="?project=${p.id}" style="text-decoration: none;">
             <div style="padding: 1.5rem; border-radius: 15px; background: ${accentBg}; border: 1px solid ${borderColor}; transition: 0.3s; height: 100%;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='${accentBg}'">
-              <h4 style="margin: 0 0 0.5rem 0; color: ${titleColor};">${p.name}</h4>
+              <h4 style="margin: 0 0 0.5rem 0; color: ${titleColor};">${p.name} ${badge}</h4>
               <p style="margin: 0; font-size: 0.85rem; color: var(--text-dim);">
-                ${isTemplate ? 'Base Vibe Coding structure.' : 'Active developer workspace.'}
+                ${p.desc}
               </p>
             </div>
           </a>
