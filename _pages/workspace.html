@@ -30,10 +30,10 @@ permalink: /workspace/
   </div>
 
   <!-- State 2: Active Project View -->
-  <div id="active-project-view" style="display: none; grid-column: 1 / -1; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem;">
+  <div id="active-project-view" style="display: none; grid-column: 1 / -1; flex-direction: column; gap: 2rem;">
     
-    <!-- Left Column: Frontend Preview -->
-    <div class="glass-panel" style="display: flex; flex-direction: column; padding: 1rem; min-height: 600px;">
+    <!-- Top Row: Frontend Preview -->
+    <div class="glass-panel" style="display: flex; flex-direction: column; padding: 1rem; min-height: 80vh;">
       <div class="panel-title" style="margin-bottom: 0.5rem; font-size: 1.1rem; justify-content: space-between;">
         <span id="frontend-title">🖥️ Frontend Preview</span>
         <a id="frontend-link" href="#" target="_blank" style="font-size: 0.8rem; color: var(--text-dim); text-decoration: none;">Open in new tab ↗</a>
@@ -43,8 +43,8 @@ permalink: /workspace/
       </div>
     </div>
 
-    <!-- Right Column: PRD & Architecture (Mermaid) -->
-    <div class="glass-panel" style="display: flex; flex-direction: column; padding: 1.5rem; max-height: 800px; overflow-y: auto;">
+    <!-- Bottom Row: PRD & Architecture (Mermaid) -->
+    <div class="glass-panel" style="display: flex; flex-direction: column; padding: 1.5rem; min-height: 400px;">
       <div class="panel-title" style="font-size: 1.1rem; justify-content: space-between;">
         <span>📄 Live PRD & Architecture</span>
         <button onclick="document.getElementById('feedback-modal').style.display='flex'" style="background: rgba(188,19,254,0.2); border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.25rem 0.75rem; border-radius: 10px; cursor: pointer; font-size: 0.8rem;">
@@ -99,7 +99,7 @@ permalink: /workspace/
   if(projectName) {
     document.getElementById('no-project-view').style.display = 'none';
     const activeView = document.getElementById('active-project-view');
-    activeView.style.display = 'grid'; // because of the grid layout
+    activeView.style.display = 'flex'; // vertical stacking layout
     document.getElementById('workspace-status').style.display = 'inline-block';
     
     // Initialize specific project workspace asynchronously
@@ -293,25 +293,33 @@ permalink: /workspace/
       const markdownText = textDecoder.decode(bytes);
 
       // Parse Markdown to HTML
-      // We need a custom renderer to handle mermaid blocks differently so mermaid.js can pick them up
-      const renderer = new marked.Renderer();
-      const defaultCodeRenderer = renderer.code.bind(renderer);
-      
-      renderer.code = function(code, language) {
-        if(language === 'mermaid') {
-          return `<div class="mermaid">${code}</div>`;
-        }
-        return defaultCodeRenderer(code, language);
-      };
-
-      marked.use({ renderer });
       contentEl.innerHTML = marked.parse(markdownText);
       
+      // Convert language-mermaid code blocks into standard divs for Mermaid.js
+      const codeBlocks = contentEl.querySelectorAll('code.language-mermaid');
+      codeBlocks.forEach(block => {
+        const pre = block.parentElement;
+        const div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = block.textContent;
+        // style the unrendered text just in case mermaid fails
+        div.style.background = 'rgba(0,0,0,0.5)';
+        div.style.padding = '1rem';
+        div.style.borderRadius = '10px';
+        pre.parentNode.replaceChild(div, pre);
+      });
+
       loadingEl.style.display = 'none';
       contentEl.style.display = 'block';
 
       // Run Mermaid on the newly injected DOM
-      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+      if(window.mermaid) {
+        try {
+          mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        } catch(e) {
+          console.error("Mermaid initialization failed", e);
+        }
+      }
 
     } catch (error) {
       loadingEl.innerHTML = `<span style="color: #ff4444;">Status: ${error.message}</span><br><span style="font-size:0.8rem; color: var(--text-dim);">Ensure <code>work/${project}/docs/*.md</code> exists and is pushed to GitHub.</span>`;
