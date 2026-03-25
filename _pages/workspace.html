@@ -18,13 +18,14 @@ permalink: /workspace/
   </div>
 
   <!-- State 1: No Project Selected -->
-  <div id="no-project-view" class="glass-panel" style="grid-column: 1 / -1; text-align: center; padding: 5rem 2rem;">
-    <h3 style="color: var(--text-main);">No Project Selected</h3>
-    <p style="color: var(--text-dim);">Please select a project to view its workspace.</p>
-    <div style="margin-top: 2rem;">
-      <a href="/?project=template" onclick="window.location.href='?project=template'; return false;" style="padding: 0.75rem 1.5rem; background: var(--accent-primary); border-radius: 20px; color: white; text-decoration: none; font-weight: 700;">
-        Load Template Project
-      </a>
+  <div id="no-project-view" class="glass-panel" style="grid-column: 1 / -1; padding: 3rem 2rem;">
+    <h3 style="color: var(--accent-secondary); margin-top: 0; text-align: center;">Select a Workspace Project</h3>
+    <p style="color: var(--text-dim); text-align: center; margin-bottom: 2rem;">Choose an active project from the repository to view its PRD and live preview.</p>
+    
+    <div id="project-list-loading" style="text-align: center; color: var(--accent-primary);">Fetching active projects...</div>
+    
+    <div id="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+      <!-- Injected via JS -->
     </div>
   </div>
 
@@ -109,6 +110,51 @@ permalink: /workspace/
 
     // Fetch PRD
     fetchPRD(projectName);
+  } else {
+    // Fetch available projects grid
+    fetchProjectList();
+  }
+
+  async function fetchProjectList() {
+    const loadingEl = document.getElementById('project-list-loading');
+    const gridEl = document.getElementById('project-grid');
+    
+    try {
+      const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/work`);
+      if (!response.ok) throw new Error('Work folder not accessible.');
+      
+      const items = await response.json();
+      const projects = items.filter(item => item.type === 'dir');
+      
+      if(projects.length === 0) {
+        throw new Error('No projects found in work/.');
+      }
+
+      let html = '';
+      projects.forEach(p => {
+        const isTemplate = p.name === 'template';
+        const borderColor = isTemplate ? 'rgba(0,242,255,0.3)' : 'var(--glass-border)';
+        const titleColor = isTemplate ? 'var(--accent-secondary)' : 'var(--text-main)';
+        const accentBg = isTemplate ? 'rgba(0,242,255,0.05)' : 'rgba(255,255,255,0.02)';
+        
+        html += `
+          <a href="?project=${p.name}" style="text-decoration: none;">
+            <div style="padding: 1.5rem; border-radius: 15px; background: ${accentBg}; border: 1px solid ${borderColor}; transition: 0.3s; height: 100%;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='${accentBg}'">
+              <h4 style="margin: 0 0 0.5rem 0; color: ${titleColor};">${p.name}</h4>
+              <p style="margin: 0; font-size: 0.85rem; color: var(--text-dim);">
+                ${isTemplate ? 'Base Vibe Coding structure.' : 'Active developer workspace.'}
+              </p>
+            </div>
+          </a>
+        `;
+      });
+
+      loadingEl.style.display = 'none';
+      gridEl.innerHTML = html;
+
+    } catch (error) {
+      loadingEl.innerHTML = `<span style="color: #ff4444;">Status: ${error.message}</span>`;
+    }
   }
 
   async function fetchPRD(project) {
