@@ -1,0 +1,69 @@
+name: Import External Frontend & PRD
+on:
+  workflow_dispatch:
+    inputs:
+      repo_url:
+        description: 'External Repository URL (e.g., https://github.com/hshlalla/my-test-app)'
+        required: true
+      project_name:
+        description: 'Workspace Folder Name (e.g., my-test-app)'
+        required: true
+      branch:
+        description: 'Branch to import from (usually main or master)'
+        required: true
+        default: 'main'
+
+jobs:
+  import-project:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout Workspace Repository
+        uses: actions/checkout@v4
+
+      - name: Clone External Repository (Frontend & PRD)
+        run: |
+          git clone --depth 1 -b ${{ github.event.inputs.branch }} ${{ github.event.inputs.repo_url }} ext_repo || git clone --depth 1 -b master ${{ github.event.inputs.repo_url }} ext_repo
+
+      - name: Prepare Workspace Folder
+        run: |
+          PROJECT_DIR="work/${{ github.event.inputs.project_name }}"
+          mkdir -p "$PROJECT_DIR/front"
+          mkdir -p "$PROJECT_DIR/docs"
+
+          # 1. Copy Frontend Code
+          if [ -d "ext_repo/front" ]; then
+            cp -r ext_repo/front/* "$PROJECT_DIR/front/" || true
+            echo "✅ Frontend code imported."
+          else
+            echo "⚠️ No 'front/' folder found in external repository."
+          fi
+
+          # 2. Copy PRD Document
+          if [ -f "ext_repo/docs/prd.md" ]; then
+            cp ext_repo/docs/prd.md "$PROJECT_DIR/docs/prd.md"
+            echo "✅ PRD imported."
+          else
+            echo "# PRD for ${{ github.event.inputs.project_name }}" > "$PROJECT_DIR/docs/prd.md"
+            echo "⚠️ PRD not found in external repo. Please update." >> "$PROJECT_DIR/docs/prd.md"
+          fi
+
+          # 3. Generate project.json metadata
+          cat <<EOF > "$PROJECT_DIR/project.json"
+          {
+            "name": "${{ github.event.inputs.project_name }}",
+            "description": "Imported from ${{ github.event.inputs.repo_url }} via Automation",
+            "type": "internal",
+            "external_repo": "${{ github.event.inputs.repo_url }}"
+          }
+          EOF
+
+      - name: Commit and Push to Master
+        run: |
+          git config --global user.name "Vibe Coding Bot"
+          git config --global user.email "actions@github.com"
+          git add work/${{ github.event.inputs.project_name }}
+          git commit -m "system: auto-import frontend and PRD for ${{ github.event.inputs.project_name }}" || echo "No changes to commit"
+          git push origin master
