@@ -112,14 +112,25 @@ permalink: /workspace/
   async function initWorkspace(project) {
     let config = { type: 'internal' };
     
-    // Attempt to load project.json
-    try {
-      const res = await fetch(`https://raw.githubusercontent.com/${repoOwner}/${repoName}/master/work/${project}/project.json`);
-      if(res.ok) {
-        config = await res.json();
+    if (project.startsWith('local_')) {
+      try {
+        const stored = localStorage.getItem('agentic_local_projects');
+        if (stored) {
+          const localProjects = JSON.parse(stored);
+          const p = localProjects.find(x => x.id === project);
+          if(p) config = p;
+        }
+      } catch(e) {}
+    } else {
+      // Attempt to load project.json
+      try {
+        const res = await fetch(`https://raw.githubusercontent.com/${repoOwner}/${repoName}/master/work/${project}/project.json`);
+        if(res.ok) {
+          config = await res.json();
+        }
+      } catch(e) {
+        console.log('No project.json found, using defaults.');
       }
-    } catch(e) {
-      console.log('No project.json found, using defaults.');
     }
 
     document.getElementById('workspace-title').textContent = config.name ? `Workspace: ${config.name}` : `Workspace: ${project}`;
@@ -134,26 +145,54 @@ permalink: /workspace/
     }
 
     // Fetch PRD
-    fetchPRD(project);
+    if (project.startsWith('local_')) {
+      document.getElementById('prd-loading').innerHTML = '<span style="color:var(--text-dim);">PRD sync is unavailable for temporary browser-registered projects.</span>';
+    } else {
+      fetchPRD(project);
+    }
   }
 
   async function fetchProjectList() {
     const loadingEl = document.getElementById('project-list-loading');
     const gridEl = document.getElementById('project-grid');
     
+    // Load Local Storage Projects first
+    let localProjects = [];
+    try {
+      const stored = localStorage.getItem('agentic_local_projects');
+      if (stored) localProjects = JSON.parse(stored);
+    } catch(e) {}
+
+    let githubProjects = [];
     try {
       const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/work`);
-      if (!response.ok) throw new Error('Work folder not accessible.');
-      
-      const items = await response.json();
-      const projectDirs = items.filter(item => item.type === 'dir');
-      
-      if(projectDirs.length === 0) {
-        throw new Error('No projects found in work/.');
+      if (response.ok) {
+        const items = await response.json();
+        githubProjects = items.filter(item => item.type === 'dir');
       }
+    } catch (error) {
+      console.warn("GitHub API rate limit or no work folder. Proceeding with local projects only.");
+    }
 
-      // Fetch configs for all projects concurrently to build rich cards
-      const projectDataPromises = projectDirs.map(async p => {
+    let html = '';
+
+    // Render Local Storage Projects
+    localProjects.forEach(p => {
+      html += `
+        <a href="?project=${p.id}" style="text-decoration: none;">
+          <div style="padding: 1.5rem; border-radius: 15px; background: rgba(57, 255, 20, 0.05); border: 1px dashed rgba(57, 255, 20, 0.4); transition: 0.3s; height: 100%;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(57, 255, 20, 0.05)'">
+            <h4 style="margin: 0 0 0.5rem 0; color: #39FF14;">${p.name} <span style="font-size:0.65rem; background:rgba(57, 255, 20, 0.2); padding:2px 6px; border-radius:4px; margin-left:5px; vertical-align:middle;">Local</span></h4>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--text-dim);">
+              Registered via browser. URL: ${p.preview_url.replace(/^https?:\/\//, '').substring(0, 25)}...
+            </p>
+          </div>
+        </a>
+      `;
+    });
+
+    if(githubProjects.length > 0) {
+      // Fetch configs for all github projects concurrently
+      const projectDataPromises = githubProjects.map(async p => {
         let name = p.name;
         let desc = 'Active developer workspace.';
         let isExternal = false;
@@ -166,14 +205,13 @@ permalink: /workspace/
             if(config.description) desc = config.description;
             if(config.preview_url || config.type === 'external') isExternal = true;
           }
-        } catch(e) { /* fallback used */ }
+        } catch(e) { }
         
         return { id: p.name, name, desc, isExternal, isTemplate: (p.name === 'template') };
       });
 
       const projects = await Promise.all(projectDataPromises);
 
-      let html = '';
       projects.forEach(p => {
         const borderColor = p.isTemplate ? 'rgba(0,242,255,0.3)' : (p.isExternal ? 'rgba(188,19,254,0.3)' : 'var(--glass-border)');
         const titleColor = p.isTemplate ? 'var(--accent-secondary)' : (p.isExternal ? 'var(--accent-primary)' : 'var(--text-main)');
@@ -191,13 +229,39 @@ permalink: /workspace/
           </a>
         `;
       });
-
-      loadingEl.style.display = 'none';
-      gridEl.innerHTML = html;
-
-    } catch (error) {
-      loadingEl.innerHTML = `<span style="color: #ff4444;">Status: ${error.message}</span>`;
     }
+
+    // Add UI Button for Local Registration
+    html += `
+      <div onclick="registerLocalProject()" style="padding: 1.5rem; border-radius: 15px; background: rgba(255,255,255,0.02); border: 1px dashed var(--glass-border); cursor: pointer; transition: 0.3s; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'">
+        <h4 style="margin: 0 0 0.5rem 0; color: var(--text-dim);">➕ Add Project URL</h4>
+        <p style="margin: 0; font-size: 0.75rem; color: var(--text-dim); text-align: center;">Register an external URL temporarily in your browser.</p>
+      </div>
+    `;
+
+    loadingEl.style.display = 'none';
+    gridEl.innerHTML = html;
+  }
+
+  function registerLocalProject() {
+    const name = prompt("Enter project display name (e.g., My New App):", "Local App");
+    if(!name) return;
+    const url = prompt("Enter the external URL (e.g., https://my-app.vercel.app):", "https://");
+    if(!url || !url.startsWith("http")) { alert("Valid URL required."); return; }
+
+    const id = "local_" + Date.now().toString(36);
+    const newProj = { id, name, preview_url: url, type: 'external' };
+    
+    let localProjects = [];
+    try {
+      const stored = localStorage.getItem('agentic_local_projects');
+      if (stored) localProjects = JSON.parse(stored);
+    } catch(e) {}
+    
+    localProjects.push(newProj);
+    localStorage.setItem('agentic_local_projects', JSON.stringify(localProjects));
+    
+    fetchProjectList(); // Reload grid
   }
 
   async function fetchPRD(project) {
