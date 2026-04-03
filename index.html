@@ -4,6 +4,44 @@ author_profile: true
 hide_navigation: true
 ---
 
+<!-- Ultimate Theme Overrides -->
+<style>
+  html { font-size: 11px !important; }
+  body { background: #050510 !important; color: #fdfdfd !important; letter-spacing: -0.01em; }
+  
+  /* Force Dark Masthead on ALL pages */
+  .masthead, .masthead__inner-wrap, .greedy-nav, #site-nav, 
+  .visible-links, .hidden-links, .navicon, .greedy-nav__toggle, 
+  .masthead__menu, header.masthead {
+    background-color: #050510 !important;
+    background: #050510 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  
+  .greedy-nav a, .site-title, .masthead__menu-item a { 
+    color: #fff !important; 
+    font-weight: 600 !important;
+    padding: 0.5rem 0.8rem !important;
+  }
+  
+  .site-logo img { max-height: 18px !important; margin: 5px !important; }
+  .site-subtitle { display: none !important; }
+  
+  /* Extreme Density Spacing */
+  .initial-content { padding-top: 0 !important; }
+  .page__content { margin-top: 0 !important; }
+  .page__footer { background: #050510 !important; border-top: 1px solid rgba(255,255,255,0.08) !important; padding: 1rem 0 !important; }
+  
+  /* Hide scrollbar for ultra clean look */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #050510; }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+</style>
+
 <div class="dashboard-container">
   <!-- Hero Section: Ultra-Compact -->
   <div class="glass-panel" style="grid-column: 1 / -1; min-height: 160px; justify-content: center; background: radial-gradient(at top left, rgba(188, 19, 254, 0.08), transparent 70%); padding: 0.75rem 1.25rem;">
@@ -97,20 +135,6 @@ hide_navigation: true
       <a href="/projects/" class="project-card" style="padding: 0.6rem !important;">
         <div style="font-weight: 800; color: var(--accent-secondary); font-size: 0.85rem;">Neural Codec</div>
         <p style="font-size: 0.7rem; color: var(--text-dim); margin: 0; line-height: 1.2;">VBR 오디오 압축 기술 연구.</p>
-        <div style="margin-top: 0.25rem;">
-          <span class="tech-badge">GAN</span> <span class="tech-badge">VAE</span>
-        </div>
-      </a>
-      <a href="/projects/" class="project-card" style="padding: 0.6rem !important;">
-        <div style="font-weight: 800; color: var(--accent-primary); font-size: 0.85rem;">Classifier</div>
-        <p style="font-size: 0.7rem; color: var(--text-dim); margin: 0; line-height: 1.2;">사운드스케이프 클러스터링.</p>
-        <div style="margin-top: 0.25rem;">
-          <span class="tech-badge">ML</span> <span class="tech-badge">C++</span>
-        </div>
-      </a>
-    </div>
-  </div>
-
   <!-- Agent Command Center: Zero Margin -->
   <div class="glass-panel" style="grid-column: 1 / -1; border-top: 1px dashed rgba(255,255,255,0.05); background: rgba(255,255,255,0.01); padding: 0.4rem 1rem;">
     <div style="display: flex; gap: 1rem; align-items: center; justify-content: space-between;">

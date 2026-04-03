@@ -12,32 +12,21 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
-    <!-- Nuclear Theme Overrides -->
+    <!-- Ultimate Theme Overrides -->
     <style>
-      html { font-size: 13px !important; }
-      body { background: #050510 !important; }
-      .masthead, .masthead__inner-wrap, .greedy-nav, #site-nav, .visible-links, .hidden-links, .navicon, .greedy-nav__toggle {
+      html { font-size: 12px !important; }
+      body { background: #050510 !important; color: #f0f0f5 !important; }
+      .masthead, .masthead__inner-wrap, .greedy-nav, #site-nav, .visible-links, .hidden-links, .navicon, .greedy-nav__toggle, .masthead__menu {
         background-color: #050510 !important;
         background: #050510 !important;
         border-color: rgba(255, 255, 255, 0.1) !important;
+        fill: #050510 !important;
       }
-      .greedy-nav a { color: #f0f0f5 !important; }
-      .site-title { color: #fff !important; }
-      .masthead { border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 0.2rem 0 !important; }
-    </style>
-    <!-- Force Dark Mode for Masthead and Global Density -->
-    <style>
-      html { font-size: 13px !important; }
-      body { background-color: #050510 !important; }
-      .masthead, .masthead__inner-wrap, .greedy-nav, #site-nav, .visible-links, .hidden-links, .navicon, .greedy-nav__toggle {
-        background-color: #050510 !important;
-        background: #050510 !important;
-        border-color: rgba(255, 255, 255, 0.1) !important;
-      }
-      .greedy-nav a { color: #f0f0f5 !important; }
-      .site-title { color: #fff !important; }
-      .masthead { border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 0.1rem 0 !important; }
-      .greedy-nav__toggle { color: #00f2ff !important; }
+      .greedy-nav a, .site-title, .masthead__menu-item a { color: #fff !important; }
+      .masthead { border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 0 !important; margin: 0 !important; height: auto !important; min-height: 0 !important; }
+      .site-logo img { max-height: 20px !important; }
+      .site-subtitle { display: none !important; }
+      .page__footer { background: #050510 !important; border-top: 1px solid rgba(255,255,255,0.1) !important; }
     </style>
   </head>
 
