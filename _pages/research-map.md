@@ -16,7 +16,7 @@ classes:
 </div>
 
 <div class="content-grid">
-  <section class="content-card">
+  <section class="content-card tone-signal">
     <p class="card-kicker">Track 01</p>
     <h2>Speech Enhancement</h2>
     <p>실시간 음성 향상, denoising, 저지연 추론, 음질 평가처럼 바로 실험으로 이어지는 문제를 다룹니다.</p>
@@ -27,7 +27,7 @@ classes:
     </div>
   </section>
 
-  <section class="content-card">
+  <section class="content-card tone-sky">
     <p class="card-kicker">Track 02</p>
     <h2>Music Information Retrieval</h2>
     <p>오디오 특징 추출, 태깅, 검색, 구조 분석 등 소리를 정보로 해석하는 흐름을 정리합니다.</p>
@@ -40,7 +40,7 @@ classes:
 </div>
 
 <div class="content-grid">
-  <section class="content-card">
+  <section class="content-card tone-coral">
     <p class="card-kicker">Track 03</p>
     <h2>Neural Audio Codec</h2>
     <p>압축률, 복원 품질, representation efficiency가 어떻게 맞물리는지 살피는 트랙입니다.</p>
@@ -51,7 +51,7 @@ classes:
     </div>
   </section>
 
-  <section class="content-card">
+  <section class="content-card tone-amber">
     <p class="card-kicker">Track 04</p>
     <h2>Generative and Neural Audio</h2>
     <p>생성 모델과 representation learning을 음향적 의미와 제어 가능성 중심으로 바라봅니다.</p>
@@ -64,7 +64,7 @@ classes:
 </div>
 
 <div class="content-grid content-grid--split">
-  <section class="content-card">
+  <section class="content-card tone-sky">
     <p class="card-kicker">What gets updated</p>
     <h2>주로 올리는 정보</h2>
     <ul class="detail-list">
@@ -75,7 +75,7 @@ classes:
     </ul>
   </section>
 
-  <section class="content-card">
+  <section class="content-card tone-coral">
     <p class="card-kicker">What stays out</p>
     <h2>의도적으로 제외하는 범위</h2>
     <ul class="detail-list">
@@ -87,7 +87,7 @@ classes:
   </section>
 </div>
 
-<section class="content-card section-callout">
+<section class="content-card section-callout tone-signal">
   <p class="card-kicker">Reading order</p>
   <h2>처음 보는 사람에게 추천하는 동선</h2>
   <p>

@@ -16,7 +16,7 @@ classes:
 </div>
 
 <div class="content-grid">
-  <section class="content-card">
+  <section class="content-card tone-sky">
     <p class="card-kicker">Direction</p>
     <h2>사이트 방향</h2>
     <p>
@@ -25,7 +25,7 @@ classes:
     </p>
   </section>
 
-  <section class="content-card">
+  <section class="content-card tone-signal">
     <p class="card-kicker">Focus</p>
     <h2>관심 분야</h2>
     <div class="pill-list">
@@ -39,7 +39,7 @@ classes:
 </div>
 
 <div class="content-grid content-grid--split">
-  <section class="content-card">
+  <section class="content-card tone-amber">
     <p class="card-kicker">Expertise</p>
     <h2>전문 영역</h2>
     <ul class="detail-list">
@@ -50,7 +50,7 @@ classes:
     </ul>
   </section>
 
-  <section class="content-card">
+  <section class="content-card tone-coral">
     <p class="card-kicker">Update policy</p>
     <h2>업데이트 기준</h2>
     <div class="timeline">
@@ -70,7 +70,7 @@ classes:
   </section>
 </div>
 
-<section class="content-card section-callout">
+<section class="content-card section-callout tone-signal">
   <p class="card-kicker">Contact</p>
   <h2>연결하기</h2>
   <ul class="detail-list">

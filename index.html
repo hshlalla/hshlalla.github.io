@@ -17,6 +17,13 @@ classes:
         음성 향상, MIR, neural audio, 실전 구현 관점의 메모를 전문가 시선으로 정리합니다.
       </p>
 
+      <div class="hero__scope">
+        <span class="hero-chip">Speech Enhancement</span>
+        <span class="hero-chip">Music Information Retrieval</span>
+        <span class="hero-chip">Neural Audio Codec</span>
+        <span class="hero-chip">Generative Audio</span>
+      </div>
+
       <div class="hero__actions">
         <a class="button-link button-link--primary" href="#recent-posts">최근 글 보기</a>
         <a class="button-link button-link--ghost" href="/research-map/">연구 지도 보기</a>
@@ -40,16 +47,62 @@ classes:
 
     <aside class="hero__side">
       <p class="section-kicker">Update scope</p>
+      <div class="monitor-board">
+        <div class="monitor-board__header">
+          <div>
+            <span class="monitor-board__eyebrow">Listening Room</span>
+            <strong>Audio signal monitor</strong>
+          </div>
+          <span class="monitor-board__badge">Live</span>
+        </div>
+
+        <div class="monitor-wave" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="monitor-scale" aria-hidden="true">
+          <span>0Hz</span>
+          <span>4kHz</span>
+          <span>16kHz</span>
+        </div>
+
+        <div class="monitor-readout">
+          <div class="monitor-readout__item">
+            <span>Signal</span>
+            <strong>Speech / MIR</strong>
+          </div>
+          <div class="monitor-readout__item">
+            <span>Method</span>
+            <strong>DSP + DL</strong>
+          </div>
+          <div class="monitor-readout__item">
+            <span>Output</span>
+            <strong>Notes / Experiments</strong>
+          </div>
+        </div>
+      </div>
+
       <div class="signal-list">
-        <article class="signal-card">
+        <article class="signal-card tone-signal">
           <strong>Speech enhancement</strong>
           <p>실시간 음성 향상, denoising, 저지연 추론 구조를 우선적으로 다룹니다.</p>
         </article>
-        <article class="signal-card">
+        <article class="signal-card tone-sky">
           <strong>Music information retrieval</strong>
           <p>오디오 특징 추출, 분류, 검색, 구조 분석처럼 정보 해석에 가까운 주제입니다.</p>
         </article>
-        <article class="signal-card">
+        <article class="signal-card tone-amber">
           <strong>Neural audio systems</strong>
           <p>audio codec, generative audio, representation learning 계열 흐름을 추적합니다.</p>
         </article>
@@ -75,17 +128,17 @@ classes:
     </div>
 
     <div class="feature-grid">
-      <article class="feature-card">
+      <article class="feature-card tone-signal">
         <span class="feature-card__label">Speech</span>
         <h3>실전 문제 중심</h3>
         <p>저지연, 복원 품질, 평가 지표처럼 바로 실험으로 이어지는 문제를 중심에 둡니다.</p>
       </article>
-      <article class="feature-card">
+      <article class="feature-card tone-sky">
         <span class="feature-card__label">DSP</span>
         <h3>신호 처리 관점 유지</h3>
         <p>모델만 설명하지 않고 spectrogram, feature, latency, reconstruction 관점을 함께 봅니다.</p>
       </article>
-      <article class="feature-card">
+      <article class="feature-card tone-amber">
         <span class="feature-card__label">Curation</span>
         <h3>사운드 외 주제는 제외</h3>
         <p>범용 AI 도구나 웹 생산성 이야기보다 오디오 딥러닝과 직접 연결된 정보만 남깁니다.</p>
@@ -135,7 +188,7 @@ classes:
     </div>
 
     <div class="project-grid">
-      <article class="project-card">
+      <article class="project-card tone-signal">
         <p class="project-card__index">01</p>
         <h3>Real-time Speech Enhancement</h3>
         <p>DTLN 계열 접근을 바탕으로 실제 사용 가능한 지연 시간과 음질 사이의 균형을 다룹니다.</p>
@@ -145,7 +198,7 @@ classes:
           <span class="pill">Streaming</span>
         </div>
       </article>
-      <article class="project-card">
+      <article class="project-card tone-sky">
         <p class="project-card__index">02</p>
         <h3>Neural Audio Codec</h3>
         <p>압축률과 복원 품질을 함께 살피면서 신경망 기반 오디오 표현 방식을 탐색합니다.</p>
@@ -155,7 +208,7 @@ classes:
           <span class="pill">Reconstruction</span>
         </div>
       </article>
-      <article class="project-card">
+      <article class="project-card tone-amber">
         <p class="project-card__index">03</p>
         <h3>Generative and Neural Audio</h3>
         <p>생성, 복원, representation learning이 실제 오디오 품질과 어떤 관계를 가지는지 추적합니다.</p>

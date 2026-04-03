@@ -16,7 +16,7 @@ classes:
 </div>
 
 <div class="project-grid project-grid--page">
-  <section class="content-card project-card">
+  <section class="content-card project-card tone-signal">
     <p class="project-card__index">01</p>
     <h2>Real-time Speech Enhancement</h2>
     <p>
@@ -35,7 +35,7 @@ classes:
     </div>
   </section>
 
-  <section class="content-card project-card">
+  <section class="content-card project-card tone-sky">
     <p class="project-card__index">02</p>
     <h2>Neural Audio Codec</h2>
     <p>
@@ -54,7 +54,7 @@ classes:
     </div>
   </section>
 
-  <section class="content-card project-card">
+  <section class="content-card project-card tone-coral">
     <p class="project-card__index">03</p>
     <h2>Music Information Retrieval</h2>
     <p>
@@ -73,7 +73,7 @@ classes:
     </div>
   </section>
 
-  <section class="content-card project-card">
+  <section class="content-card project-card tone-amber">
     <p class="project-card__index">04</p>
     <h2>Generative and Neural Audio</h2>
     <p>
@@ -93,7 +93,7 @@ classes:
   </section>
 </div>
 
-<section class="content-card section-callout">
+<section class="content-card section-callout tone-signal">
   <p class="card-kicker">More</p>
   <h2>업데이트는 사운드 딥러닝 범위 안에서만</h2>
   <p>
