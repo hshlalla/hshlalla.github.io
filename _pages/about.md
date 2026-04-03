@@ -2,7 +2,7 @@
 layout: single
 title: "소개"
 permalink: /about/
-author_profile: true
+author_profile: false
 classes:
   - content-page
 ---
