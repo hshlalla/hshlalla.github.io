@@ -1,0 +1,9 @@
+{
+  "username": "hshlalla",
+  "max_repos": 12,
+  "include_forks": false,
+  "exclude_repos": [
+    "hshlalla.github.io"
+  ],
+  "readme_excerpt_length": 260
+}

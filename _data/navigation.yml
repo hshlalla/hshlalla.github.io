@@ -8,3 +8,5 @@ main:
     url: /research-map/
   - title: "연구 분야"
     url: /projects/
+  - title: "GitHub 랩"
+    url: /github-lab/

@@ -1,0 +1,38 @@
+name: GitHub Repository Sync
+
+on:
+  schedule:
+    - cron: "0 * * * *" # Every hour at minute 0 UTC
+  workflow_dispatch:
+
+jobs:
+  sync-repositories:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Sync GitHub Repository Data
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/sync_github_repos.mjs
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "GitHub Repo Bot"
+          git config --global user.email "actions@github.com"
+          git add _data/github_repos.json
+          if git diff --cached --quiet; then
+            echo "No repository updates detected. Skipping commit."
+          else
+            git commit -m "chore: sync github repositories"
+            git push origin master
+          fi

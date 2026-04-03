@@ -1097,6 +1097,12 @@ textarea {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.repo-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .project-grid--page {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1136,6 +1142,51 @@ textarea {
 
 .detail-list li {
   margin-bottom: 0.6rem;
+}
+
+.repo-card {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.repo-card__header {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.repo-card__header h2 {
+  margin-bottom: 0.25rem;
+}
+
+.repo-card__timestamp {
+  margin: 0;
+  color: var(--text-faint);
+  font-size: 0.88rem;
+}
+
+.repo-card__excerpt {
+  margin: 0;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d8e4f3;
+}
+
+.repo-card__excerpt--muted {
+  color: var(--text-faint);
+}
+
+.repo-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.repo-empty {
+  margin-top: 1rem;
 }
 
 .cta-band {
@@ -1626,6 +1677,7 @@ textarea {
 @media (max-width: 1100px) {
   .feature-grid,
   .project-grid,
+  .repo-grid,
   .post-grid,
   .content-grid,
   .content-grid--split,
@@ -1691,6 +1743,7 @@ textarea {
   .post-card,
   .content-card,
   .project-card,
+  .repo-card,
   .archive__item {
     border-radius: 20px;
   }
