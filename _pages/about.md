@@ -10,7 +10,7 @@ classes:
 <div class="page-intro">
   <p class="section-kicker">About</p>
   <p class="page-lead">
-    저는 소리와 기술이 만나는 지점을 오래 다뤄 왔고, 이 사이트는 그중에서도 사운드 딥러닝 관련 정보만 업데이트하기 위해 운영합니다.
+    저는 소리와 기술이 만나는 지점을 오래 다뤄 왔고, 이 사이트는 그중에서도 오디오 딥러닝 관련 정보만 업데이트하기 위해 운영합니다.
     음악적 감각과 신호 처리의 기본기를 바탕으로, 실제로 도움이 되는 오디오 AI 메모만 남기려 합니다.
   </p>
 </div>
@@ -20,8 +20,8 @@ classes:
     <p class="card-kicker">Direction</p>
     <h2>사이트 방향</h2>
     <p>
-      Sound of DeepLearning은 포트폴리오보다는 전문 아카이브에 가깝습니다.
-      사운드 딥러닝과 직접 연결된 글, 구현 포인트, 실험 맥락만 남기고 주제를 넓게 퍼뜨리지 않는 쪽을 택했습니다.
+      이 아카이브는 포트폴리오보다는 전문 아카이브에 가깝습니다.
+      오디오 딥러닝과 직접 연결된 글, 구현 포인트, 실험 맥락만 남기고 주제를 넓게 퍼뜨리지 않는 쪽을 택했습니다.
     </p>
   </section>
 
@@ -56,7 +56,7 @@ classes:
     <div class="timeline">
       <article class="timeline__item">
         <h3>Audio first</h3>
-        <p>사운드 딥러닝과 직접 연결되지 않는 주제는 이 사이트에서 다루지 않습니다.</p>
+        <p>오디오 딥러닝과 직접 연결되지 않는 주제는 이 사이트에서 다루지 않습니다.</p>
       </article>
       <article class="timeline__item">
         <h3>Signal-aware</h3>

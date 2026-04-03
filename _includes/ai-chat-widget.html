@@ -29,7 +29,7 @@
 
     <div id="chat-messages" class="chat-window__body">
       <div class="chat-message chat-message--system">
-        Sound of DeepLearning 안에서 사운드 딥러닝 정보를 빠르게 찾기 위한 안내 위젯입니다. 실제 AI 응답보다는 페이지 길찾기에 집중합니다.
+        Audio Deep Learning Archive 안에서 오디오 딥러닝 정보를 빠르게 찾기 위한 안내 위젯입니다. 실제 AI 응답보다는 페이지 길찾기에 집중합니다.
       </div>
       <div class="chat-message chat-message--system">
         예시: "MIR 글 어디서 봐요?", "연구 지도 보여줘", "음성 향상 주제 보고 싶어".
@@ -73,11 +73,11 @@
       const normalized = question.toLowerCase();
 
       if (normalized.includes("지도") || normalized.includes("map")) {
-        return "연구 지도 페이지에서는 이 사이트가 어떤 사운드 딥러닝 분야를 다루는지 한눈에 볼 수 있어요. speech, MIR, codec, generative audio 흐름을 정리해 두었습니다.";
+        return "연구 지도 페이지에서는 이 사이트가 어떤 오디오 딥러닝 분야를 다루는지 한눈에 볼 수 있어요. speech, MIR, codec, generative audio 흐름을 정리해 두었습니다.";
       }
 
       if (normalized.includes("prd")) {
-        return "이제 PRD 성격 페이지 대신 사운드 딥러닝에 맞춘 연구 지도 페이지로 정리했습니다. 상단 메뉴의 연구 지도를 보면 바로 흐름을 파악할 수 있어요.";
+        return "이제 PRD 성격 페이지 대신 오디오 딥러닝에 맞춘 연구 지도 페이지로 정리했습니다. 상단 메뉴의 연구 지도를 보면 바로 흐름을 파악할 수 있어요.";
       }
 
       if (normalized.includes("프로젝트") || normalized.includes("연구") || normalized.includes("project")) {
@@ -85,11 +85,11 @@
       }
 
       if (normalized.includes("글") || normalized.includes("post") || normalized.includes("최근")) {
-        return "홈의 Recent notes 섹션이나 상단 메뉴의 글 모음 페이지에서 최근 사운드 딥러닝 글을 빠르게 볼 수 있어요.";
+        return "홈의 Recent notes 섹션이나 상단 메뉴의 글 모음 페이지에서 최근 오디오 딥러닝 글을 빠르게 볼 수 있어요.";
       }
 
       if (normalized.includes("소개") || normalized.includes("about")) {
-        return "소개 페이지에는 사운드 전문가로서의 작업 방향, 다루는 범위, 기술 스택, 업데이트 기준을 정리해 두었습니다.";
+        return "소개 페이지에는 오디오 전문가로서의 작업 방향, 다루는 범위, 기술 스택, 업데이트 기준을 정리해 두었습니다.";
       }
 
       if (normalized.includes("mir") || normalized.includes("검색")) {
@@ -100,7 +100,7 @@
         return "음성 향상 쪽은 연구 분야 페이지의 첫 번째 트랙에서 바로 볼 수 있어요. 최근 관련 글은 홈의 최근 글이나 글 모음에서도 찾을 수 있습니다.";
       }
 
-      return "이 위젯은 사운드 딥러닝 정보 길찾기용입니다. 글 모음, 연구 지도, 연구 분야 중 어디로 가고 싶은지 물어보면 가장 맞는 페이지를 안내할게요.";
+      return "이 위젯은 오디오 딥러닝 정보 길찾기용입니다. 글 모음, 연구 지도, 연구 분야 중 어디로 가고 싶은지 물어보면 가장 맞는 페이지를 안내할게요.";
     }
 
     window.toggleChat = function toggleChat() {
