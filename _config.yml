@@ -14,18 +14,18 @@
 minimal_mistakes_skin    : "dark"
 
 # Site Settings
-locale                   : "en-US"
-title                    : "Sound Of DeepLearning"
+locale                   : "ko-KR"
+title                    : "Sound of DeepLearning"
 title_separator          : "-"
-subtitle                 : 사운드에 관한 A - Z
-name                     : "hshlalla"
-description              : "음악, 사운드에 관한 인공지능 기법의 모든것을 다룹니다."#, 음성인식, 사운드 디자인, 인공지능 작곡 ,sound recognize, sound design, music inforamtion retrival, ai compose"
+subtitle                 : "사운드 딥러닝 연구 아카이브"
+name                     : "SuHun Hong"
+description              : "사운드 딥러닝, Audio DSP, MIR, neural audio 연구 기록."
 url                      : "https://hshlalla.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog" 
 repository               : "hshlalla/hshlalla.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/images/logo.jpeg"# path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # "소개"
+logo                     : "/images/logo.jpeg" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+masthead_title           : "Sound of DeepLearning"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -40,7 +40,7 @@ comments:
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
   utterances:
-    theme                : "github-light" # "github-light" (default), "github-dark"
+    theme                : "github-dark" # "github-light" (default), "github-dark"
     issue_term           : "pathname" # "pathname" (default)
   giscus:
     repo_id              : # Shown during giscus setup at https://giscus.app
@@ -103,53 +103,29 @@ analytics:
 author:
   name             : "SuHun Hong"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Composer, AI developer."
-  location         : "Korea.Seoul"
+  bio              : "사운드와 딥러닝을 함께 다루는 오디오 연구자. Speech enhancement, MIR, neural audio를 중심으로 기록합니다."
+  location         : "Seoul, South Korea"
   email            : hshlalla@naver.com
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/hshlalla"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
-    - label: "Linked in"
+    - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/%EB%8B%A4%EB%B9%84-%ED%95%98%EC%9D%B4-aa9491240/"
 
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
+      url: "https://github.com/hshlalla"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/%EB%8B%A4%EB%B9%84-%ED%95%98%EC%9D%B4-aa9491240/"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:hshlalla@naver.com"
 
 
 # Reading Files
