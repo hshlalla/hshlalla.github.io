@@ -1457,28 +1457,8 @@ textarea {
   right: 1.25rem;
   bottom: 1.25rem;
   z-index: 120;
-  display: grid;
-  gap: 0.85rem;
-  justify-items: end;
-}
-
-.chat-trigger {
-  display: inline-flex;
-  gap: 0.6rem;
-  align-items: center;
-  min-height: 3.5rem;
-  padding: 0.85rem 1rem;
-  border: 1px solid var(--border-soft);
-  border-radius: 999px;
-  color: white;
-  background: rgba(7, 17, 31, 0.85);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(18px);
-}
-
-.chat-trigger:hover {
-  transform: translateY(-1px);
-  border-color: rgba(45, 212, 191, 0.5);
+  display: flex;
+  justify-content: flex-end;
 }
 
 .chat-window {
