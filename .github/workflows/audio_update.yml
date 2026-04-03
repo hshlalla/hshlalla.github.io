@@ -1,0 +1,38 @@
+name: Audio DL News Update
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Every day at 00:00 UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Audio News Update Script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/update_audio_news.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "Audio News Bot"
+          git config --global user.email "actions@github.com"
+          git add _posts/*.md
+          if git diff --cached --quiet; then
+            echo "No new news found. Skipping commit."
+          else
+            git commit -m "chore: automated audio deep learning research update"
+            git push origin master
+          fi
