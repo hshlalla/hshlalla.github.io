@@ -7,10 +7,12 @@ classes:
   - content-page
 ---
 
+{% assign brand_topic = site.brand.topic_ko | default: "오디오 딥러닝" %}
+
 <div class="page-intro">
   <p class="section-kicker">Research Tracks</p>
   <p class="page-lead">
-    여기에는 현재 깊게 추적하는 오디오 딥러닝 분야를 정리해 두었습니다.
+    여기에는 현재 깊게 추적하는 {{ brand_topic }} 분야를 정리해 두었습니다.
     개인 프로젝트 소개라기보다, 어떤 오디오 문제를 어떤 관점으로 보고 있는지 드러내는 연구 트랙에 가깝습니다.
   </p>
 </div>
@@ -95,7 +97,7 @@ classes:
 
 <section class="content-card section-callout tone-signal">
   <p class="card-kicker">More</p>
-  <h2>업데이트는 오디오 딥러닝 범위 안에서만</h2>
+  <h2>업데이트는 {{ brand_topic }} 범위 안에서만</h2>
   <p>
     이 페이지에는 오디오와 직접 연결되는 분야만 남겨 두었습니다.
     세부 구현과 실험 흔적은 <a href="https://github.com/hshlalla">GitHub 저장소</a>와 글 모음 페이지에서 이어서 정리해 나갈 예정입니다.

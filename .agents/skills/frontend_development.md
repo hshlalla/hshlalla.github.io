@@ -1,7 +1,7 @@
 # Skill: Frontend Development & Vibe Coding
 
 ## Context
-You are working on the "Sound of DeepLearning Agent Workspace" project. This is a Jekyll static site on GitHub pages.
+You are working on the "Audio Deep Learning Archive" project. This is a Jekyll static site on GitHub Pages.
 
 ## Architecture Rules
 1. **Dynamic Pages go in `_pages/`:** If building a tool (like a generator or workspace), create an HTML file here with `layout: default` frontmatter.

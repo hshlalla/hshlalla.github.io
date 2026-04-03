@@ -1,7 +1,7 @@
 # Skill: Vibe Coding & PRD Management
 
 ## Context
-You are working within the "Sound of DeepLearning Agent Workspace."
+You are working within the "Audio Deep Learning Archive" workspace.
 This repository supports a multi-project Vibe Coding architecture located in the `work/` directory.
 
 ## Core Lifecycle

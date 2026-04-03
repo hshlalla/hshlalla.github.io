@@ -39,7 +39,7 @@ def summarize_with_gemini(paper):
         print("[WARNING] GEMINI_API_KEY not found. Using raw abstract.")
         return paper["summary"][:300] + "..."
 
-    prompt = f"다음은 'Audio Deep Learning' 최신 논문 정보입니다.\n제목: {paper['title']}\n요약(영어): {paper['summary']}\n\n이 내용을 한국어로 3줄 요약해줘. 핵심 기여도와 오디오/사운드 연구 관점에서의 중요성을 강조해줘."
+    prompt = f"다음은 'Audio Deep Learning' 최신 논문 정보입니다.\n제목: {paper['title']}\n요약(영어): {paper['summary']}\n\n이 내용을 한국어로 3줄 요약해줘. 핵심 기여도와 오디오 연구 관점에서의 중요성을 강조해줘."
     
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
     payload = {
@@ -63,12 +63,12 @@ def create_post(papers):
     content = f"""---
 layout: single
 title: "Audio Deep Learning 최신 연구 브리핑 ({today})"
-categories: [Deep Learning, Sound]
+categories: [Deep Learning, Audio]
 tags: [Audio Research, Deep Learning, arXiv]
 last_modified_at: {today}
 ---
 
-오늘 배포된 Audio 및 Sound Signal Processing 분야의 최신 논문 5가지를 요약하여 소개합니다.
+오늘 배포된 Audio Deep Learning 및 Audio Signal Processing 분야의 최신 논문 5가지를 요약하여 소개합니다.
 
 """
     for i, paper in enumerate(papers):

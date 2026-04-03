@@ -5,6 +5,7 @@
 {%- assign seo_url = seo_url | default: site.github.url -%}
 
 {% assign title_separator = site.title_separator | default: '-' | replace: '|', '&#124;' %}
+{% capture default_site_description %}{{ site.brand.topic_ko | default: "오디오 딥러닝" }}, {{ site.brand.related_topics | default: "Audio DSP, MIR, neural audio" }} 연구 기록.{% endcapture %}
 
 {%- if page.title -%}
   {%- assign seo_title = page.title | append: " " | append: title_separator | append: " " | append: site.title -%}
@@ -20,7 +21,7 @@
   {%- assign canonical_url = page.url | replace: "index.html", "" | absolute_url %}
 {% endif %}
 
-{%- assign seo_description = page.description | default: page.excerpt | default: site.description -%}
+{%- assign seo_description = page.description | default: page.excerpt | default: default_site_description -%}
 {%- if seo_description -%}
   {%- assign seo_description = seo_description | markdownify | strip_html | newline_to_br | strip_newlines | replace: '<br />', ' ' | escape_once | strip -%}
 {%- endif -%}

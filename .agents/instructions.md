@@ -1,9 +1,9 @@
-# AI Agent Instructions: Sound of DeepLearning Project
+# AI Agent Instructions: Audio Deep Learning Archive Project
 
 ## Project Context
-`hshlalla.github.io` is a Jekyll-based personal portfolio and blog focusing on **Sound, Music, and Deep Learning**. The goals are:
-1. To showcase technical expertise in AI and sound engineering.
-2. To provide a "Work Dashboard" for the user to manage their AI-related business and development.
+`hshlalla.github.io` is a Jekyll-based research archive focusing on **Audio, Music, and Deep Learning**. The goals are:
+1. To showcase technical expertise in audio AI, DSP, and related research.
+2. To maintain a focused archive of notes, experiments, and curated updates connected to audio deep learning.
 
 ## Aesthetic Standards (CRITICAL)
 - **Style**: Premium, Futuristic, Agentic.

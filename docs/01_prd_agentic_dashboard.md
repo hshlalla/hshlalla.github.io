@@ -1,7 +1,7 @@
 # Product Requirements Document (PRD): Agentic Dashboard & Workspace
 
 **Version:** 1.0 (Initial Foundation)
-**Project Name:** Sound of DeepLearning Agent Workspace
+**Project Name:** Audio Deep Learning Archive Agent Workspace
 **Platform:** GitHub Pages (Static hosting) with Client-side JS
 
 ## 1. Introduction

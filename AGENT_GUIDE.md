@@ -1,6 +1,6 @@
 # AI Agent Connection Guide
 
-The frontend UI for the **DeepSound Agent** is now ready. To make it functional, you have two main options:
+The frontend UI for the **Audio Guide** is now ready. To make it functional, you have two main options:
 
 ## Option 1: Dify / Chatbase (Recommended for Security)
 These services provide a secure, hosted backend for your AI agent.

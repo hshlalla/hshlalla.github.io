@@ -1,3 +1,8 @@
+{% assign brand_topic = site.brand.topic_ko | default: "오디오 딥러닝" %}
+{% assign brand_expert_label = site.brand.expert_label_ko | default: "오디오 전문가" %}
+{% assign guide_name = site.brand.guide_name | default: "Audio Guide" %}
+{% assign guide_role = site.brand.guide_role | default: "Research navigator" %}
+
 <div id="agent-chat-wrapper">
   <button
     id="agent-chat-trigger"
@@ -10,7 +15,7 @@
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
     </svg>
-    <span>Audio Guide</span>
+    <span>{{ guide_name }}</span>
   </button>
 
   <div id="agent-chat-window" class="chat-window" hidden>
@@ -18,8 +23,8 @@
       <div class="chat-window__status">
         <span class="status-dot" aria-hidden="true"></span>
         <div>
-          <strong>Audio Guide</strong>
-          <span>Research navigator</span>
+          <strong>{{ guide_name }}</strong>
+          <span>{{ guide_role }}</span>
         </div>
       </div>
       <button class="chat-window__close" type="button" aria-label="Close chat" onclick="toggleChat()">
@@ -29,7 +34,7 @@
 
     <div id="chat-messages" class="chat-window__body">
       <div class="chat-message chat-message--system">
-        Audio Deep Learning Archive 안에서 오디오 딥러닝 정보를 빠르게 찾기 위한 안내 위젯입니다. 실제 AI 응답보다는 페이지 길찾기에 집중합니다.
+        {{ site.title }} 안에서 {{ brand_topic }} 정보를 빠르게 찾기 위한 안내 위젯입니다. 실제 AI 응답보다는 페이지 길찾기에 집중합니다.
       </div>
       <div class="chat-message chat-message--system">
         예시: "MIR 글 어디서 봐요?", "연구 지도 보여줘", "음성 향상 주제 보고 싶어".
@@ -52,6 +57,8 @@
 
 <script>
   (function () {
+    const brandTopic = {{ brand_topic | jsonify }};
+    const brandExpertLabel = {{ brand_expert_label | jsonify }};
     const trigger = document.getElementById("agent-chat-trigger");
     const windowEl = document.getElementById("agent-chat-window");
     const input = document.getElementById("chat-input");
@@ -73,23 +80,23 @@
       const normalized = question.toLowerCase();
 
       if (normalized.includes("지도") || normalized.includes("map")) {
-        return "연구 지도 페이지에서는 이 사이트가 어떤 오디오 딥러닝 분야를 다루는지 한눈에 볼 수 있어요. speech, MIR, codec, generative audio 흐름을 정리해 두었습니다.";
+        return "연구 지도 페이지에서는 이 사이트가 어떤 " + brandTopic + " 분야를 다루는지 한눈에 볼 수 있어요. speech, MIR, codec, generative audio 흐름을 정리해 두었습니다.";
       }
 
       if (normalized.includes("prd")) {
-        return "이제 PRD 성격 페이지 대신 오디오 딥러닝에 맞춘 연구 지도 페이지로 정리했습니다. 상단 메뉴의 연구 지도를 보면 바로 흐름을 파악할 수 있어요.";
+        return "이제 PRD 성격 페이지 대신 " + brandTopic + "에 맞춘 연구 지도 페이지로 정리했습니다. 상단 메뉴의 연구 지도를 보면 바로 흐름을 파악할 수 있어요.";
       }
 
       if (normalized.includes("프로젝트") || normalized.includes("연구") || normalized.includes("project")) {
-        return "연구 분야 페이지에는 실시간 음성 향상, neural codec, MIR, generative audio처럼 현재 깊게 보는 오디오 딥러닝 트랙을 정리해 두었습니다.";
+        return "연구 분야 페이지에는 실시간 음성 향상, neural codec, MIR, generative audio처럼 현재 깊게 보는 " + brandTopic + " 트랙을 정리해 두었습니다.";
       }
 
       if (normalized.includes("글") || normalized.includes("post") || normalized.includes("최근")) {
-        return "홈의 Recent notes 섹션이나 상단 메뉴의 글 모음 페이지에서 최근 오디오 딥러닝 글을 빠르게 볼 수 있어요.";
+        return "홈의 Recent notes 섹션이나 상단 메뉴의 글 모음 페이지에서 최근 " + brandTopic + " 글을 빠르게 볼 수 있어요.";
       }
 
       if (normalized.includes("소개") || normalized.includes("about")) {
-        return "소개 페이지에는 오디오 전문가로서의 작업 방향, 다루는 범위, 기술 스택, 업데이트 기준을 정리해 두었습니다.";
+        return "소개 페이지에는 " + brandExpertLabel + "로서의 작업 방향, 다루는 범위, 기술 스택, 업데이트 기준을 정리해 두었습니다.";
       }
 
       if (normalized.includes("mir") || normalized.includes("검색")) {
@@ -100,7 +107,7 @@
         return "음성 향상 쪽은 연구 분야 페이지의 첫 번째 트랙에서 바로 볼 수 있어요. 최근 관련 글은 홈의 최근 글이나 글 모음에서도 찾을 수 있습니다.";
       }
 
-      return "이 위젯은 오디오 딥러닝 정보 길찾기용입니다. 글 모음, 연구 지도, 연구 분야 중 어디로 가고 싶은지 물어보면 가장 맞는 페이지를 안내할게요.";
+      return "이 위젯은 " + brandTopic + " 정보 길찾기용입니다. 글 모음, 연구 지도, 연구 분야 중 어디로 가고 싶은지 물어보면 가장 맞는 페이지를 안내할게요.";
     }
 
     window.toggleChat = function toggleChat() {

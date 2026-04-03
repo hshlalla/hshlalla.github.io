@@ -7,11 +7,13 @@ classes:
   - content-page
 ---
 
+{% assign brand_topic = site.brand.topic_ko | default: "오디오 딥러닝" %}
+
 <div class="page-intro">
   <p class="section-kicker">Research Map</p>
   <p class="page-lead">
     이 사이트에서 업데이트하는 범위를 먼저 보여주는 페이지입니다.
-    오디오 딥러닝과 직접 연결되는 흐름만 남기고, 어떤 문제를 어떤 관점으로 보는지 한눈에 정리했습니다.
+    {{ brand_topic }} 중심 흐름만 남기고, 어떤 문제를 어떤 관점으로 보는지 한눈에 정리했습니다.
   </p>
 </div>
 
@@ -80,7 +82,7 @@ classes:
     <h2>의도적으로 제외하는 범위</h2>
     <ul class="detail-list">
       <li><strong>범용 AI 생산성:</strong> 오디오와 직접 관련 없는 도구 소개</li>
-      <li><strong>웹 개발 일반론:</strong> 오디오 딥러닝과 무관한 프론트엔드/백엔드 팁</li>
+      <li><strong>웹 개발 일반론:</strong> 이 사이트의 {{ brand_topic }} 범위와 무관한 프론트엔드/백엔드 팁</li>
       <li><strong>넓은 트렌드 요약:</strong> 분야가 너무 넓어지는 일반 AI 뉴스 정리</li>
       <li><strong>겉핥기식 정리:</strong> 실제 오디오 문제와 연결되지 않는 피상적 요약</li>
     </ul>
