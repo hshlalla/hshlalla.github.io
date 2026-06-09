@@ -1,9 +1,26 @@
 {
-  "generated_at": "2026-06-08T23:59:52.191Z",
+  "generated_at": "2026-06-09T04:09:25.357Z",
   "source": "https://github.com/hshlalla",
   "username": "hshlalla",
   "repo_count": 12,
   "items": [
+    {
+      "name": "zeropark",
+      "full_name": "hshlalla/zeropark",
+      "repo_url": "https://github.com/hshlalla/zeropark",
+      "homepage": "",
+      "description": "",
+      "language": "Python",
+      "topics": [],
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-06-09T02:36:39Z",
+      "pushed_at": "2026-06-09T02:36:36Z",
+      "default_branch": "main",
+      "visibility": "public",
+      "readme_excerpt": "Zeropark OSS를 **설계 참고만** 하여 기능을 **네이티브로 재구현**한, 판매 가능한 단일 AI 워크스페이스 프레임워크. 한 프롬프트로 crawl·slides·(예정)research·sheets·browse 등을 수행합니다. 엔진을 API로 호출하거나 외부 서비스로 띄우지 않습니다. 전부 한 리포·하나의 프레임워크에서 네이티브로 동작하므로, 클라이언트는 우리 프레임워크 하나만 설치하면 됩니다. 구조 (monorepo workspace) 핵심 설계...",
+      "readme_html_url": "https://github.com/hshlalla/zeropark/blob/main/README.md"
+    },
     {
       "name": "Smart_vision",
       "full_name": "hshlalla/Smart_vision",
@@ -190,23 +207,6 @@
       "visibility": "public",
       "readme_excerpt": "",
       "readme_html_url": ""
-    },
-    {
-      "name": "Audio_analysis_essential",
-      "full_name": "hshlalla/Audio_analysis_essential",
-      "repo_url": "https://github.com/hshlalla/Audio_analysis_essential",
-      "homepage": "",
-      "description": "",
-      "language": "Jupyter Notebook",
-      "topics": [],
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2022-11-10T09:00:43Z",
-      "pushed_at": "2022-11-10T09:00:07Z",
-      "default_branch": "main",
-      "visibility": "public",
-      "readme_excerpt": "Audio_analysis 이 repository는 Audio_analysis 프로젝트를 모아둔 곳입니다.",
-      "readme_html_url": "https://github.com/hshlalla/Audio_analysis_essential/blob/main/README.md"
     }
   ]
 }
