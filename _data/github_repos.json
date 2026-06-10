@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10T15:19:48.020Z",
+  "generated_at": "2026-06-10T18:26:51.919Z",
   "source": "https://github.com/hshlalla",
   "username": "hshlalla",
   "repo_count": 12,
@@ -137,8 +137,8 @@
       "pushed_at": "2024-03-25T08:48:04Z",
       "default_branch": "main",
       "visibility": "public",
-      "readme_excerpt": "",
-      "readme_html_url": ""
+      "readme_excerpt": "영문버전 beautiful store home page 제작 bootstrap을 이용해서 간단하게 제작하였음.",
+      "readme_html_url": "https://github.com/hshlalla/javascript_beautifulStore/blob/main/README.md"
     },
     {
       "name": "Audio_analysis",
@@ -154,8 +154,8 @@
       "pushed_at": "2023-02-27T07:59:26Z",
       "default_branch": "main",
       "visibility": "public",
-      "readme_excerpt": "",
-      "readme_html_url": ""
+      "readme_excerpt": "Audio Analysis 이곳에는 여러가지 Audio관련 분석 방법론이 연구되어 있습니다 List 목록 speech recognize-wav to text music genre classification",
+      "readme_html_url": "https://github.com/hshlalla/Audio_analysis/blob/main/README.md"
     },
     {
       "name": "Programming_essential",
