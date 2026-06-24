@@ -1,9 +1,26 @@
 {
-  "generated_at": "2026-06-24T10:16:50.894Z",
+  "generated_at": "2026-06-24T13:14:15.236Z",
   "source": "https://github.com/hshlalla",
   "username": "hshlalla",
   "repo_count": 12,
   "items": [
+    {
+      "name": "Horse_racing_prediction",
+      "full_name": "hshlalla/Horse_racing_prediction",
+      "repo_url": "https://github.com/hshlalla/Horse_racing_prediction",
+      "homepage": "",
+      "description": "",
+      "language": "Python",
+      "topics": [],
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-06-24T12:09:55Z",
+      "pushed_at": "2026-06-24T12:09:50Z",
+      "default_branch": "main",
+      "visibility": "public",
+      "readme_excerpt": "",
+      "readme_html_url": ""
+    },
     {
       "name": "zeropark",
       "full_name": "hshlalla/zeropark",
@@ -37,23 +54,6 @@
       "visibility": "public",
       "readme_excerpt": "Smart Vision Project Smart Vision is a local-first hybrid retrieval system for indexed industrial parts. It combines a FastAPI backend, a web UI, and a reusable model package for image/text retrieval, catalog search, async indexing, and agent-assisted lookup....",
       "readme_html_url": "https://github.com/hshlalla/Smart_vision/blob/main/readme.md"
-    },
-    {
-      "name": "Horse_racing_prediction",
-      "full_name": "hshlalla/Horse_racing_prediction",
-      "repo_url": "https://github.com/hshlalla/Horse_racing_prediction",
-      "homepage": "",
-      "description": "",
-      "language": "",
-      "topics": [],
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2025-10-27T06:59:31Z",
-      "pushed_at": "2025-10-27T06:59:31Z",
-      "default_branch": "main",
-      "visibility": "public",
-      "readme_excerpt": "",
-      "readme_html_url": ""
     },
     {
       "name": "Large_languige_model",
